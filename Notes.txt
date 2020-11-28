@@ -1,0 +1,17 @@
+* Database *
+
+- VARCHAR used since it is possible for singer, album and company names to contain numbers
+
+- VARCHAR limits not imposed. Length of 50 for most attributes other than "Sex" which is restricted to 6
+
+- DOB attribute set to YEAR type to follow YYYY format
+
+- Table structure as follows:
+	- Singers: Name (VARCHAR 50, PK), DOB (DATE YYYY-MM-DD, PK), SEX (VARCHAR 6), COMPANY (VARCHAR 50)
+	- Album: Singer (VARCHAR 50, PK), Album( VARCHAR 50, PK) Year (YEAR YYYY), Company (VARCHAR 50)
+	- User: User (VARCHAR 15, PK), Pass (VARCHAR 15)
+
+- Assuming that a composite PK using attributes "Name" and "DOB" for the Singers table is okay. It does allow the subtle possibility for the breach of entity
+integrity since a singer *could* have the same name and date of birth as another. However, for simplicity's sake in this instance I think it is okay.
+
+- FK exists on the Album table with the "Singer" attribute referencing the "Name" attribute in the Singers table
