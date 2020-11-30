@@ -66,9 +66,4 @@ public class Singer {
 			return false;
 		}
 	}
-	
-	public void setDateOfBirth (LocalDate aDateOfBirth)
-	{
-		this.mDateOfBirth = aDateOfBirth;	
-	}
 }
