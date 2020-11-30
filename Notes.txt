@@ -18,6 +18,7 @@ integrity since a singer *could* have the same name and date of birth as another
 
 * DateTime types *
 
-- Date constructors deprecated (in some cases)
+- Date constructors deprecated (in some cases). DateTime objects in Java are rather problematic
 - Played around with Calendar but it seemed excessive considering I'm only concerned with a "yyyyDDmm" date string
 - Opted to use Strings as method parameter types and contracted the behaviour for parsing these into "yyyyDDmm" LocalDate types to their respective classes
+- LocalDate is great, except it must have month, day and year information supplied. This was unsuitable for the Album class, so opted for Year (java.time.year)
