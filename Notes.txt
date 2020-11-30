@@ -1,3 +1,7 @@
+* Tests *
+- TDD tests are available under com.nextgate.assesment.assesmentapplicationtests
+- Using AssertJ
+
 * Database *
 
 - VARCHAR used since it is possible for singer, album and company names to contain numbers
