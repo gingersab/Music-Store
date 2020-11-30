@@ -15,3 +15,9 @@
 integrity since a singer *could* have the same name and date of birth as another. However, for simplicity's sake in this instance I think it is okay.
 
 - FK exists on the Album table with the "Singer" attribute referencing the "Name" attribute in the Singers table
+
+* DateTime types *
+
+- Date constructors deprecated (in some cases)
+- Played around with Calendar but it seemed excessive considering I'm only concerned with a "yyyyDDmm" date string
+- Opted to use Strings as method parameter types and contracted the behaviour for parsing these into "yyyyDDmm" LocalDate types to their respective classes
