@@ -27,7 +27,10 @@ public class Singer implements Serializable {
 	@Column(name="Sex")
 	private Sex mSex; 
 	
-	/* Constructor*/
+	/* Constructors*/
+	
+	public Singer() {
+	}
 	
 	public Singer(String aName, String aCompany, Sex aSex, String aDateString) {
 		this.mSingerName = aName;

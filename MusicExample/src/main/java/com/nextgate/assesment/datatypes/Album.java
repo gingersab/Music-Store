@@ -25,7 +25,10 @@ public class Album implements Serializable {
 	@Id @Column(name="Year")
 	private Year mAlbumYear;
 	
-	/* Constructor*/
+	/* Constructors*/
+	
+	public Album() {
+	}
 	
 	public Album(String aAlbumName, String aCompany, String aSingerName, String aYearString) {
 		this.mAlbumName = aAlbumName;

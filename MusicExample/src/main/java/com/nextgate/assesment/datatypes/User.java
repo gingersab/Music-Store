@@ -10,20 +10,18 @@ import javax.persistence.Table;
 public class User {
 
 	/* State */
-	@Id @Column
+	@Id @Column(name="Username")
 	private String mUsername;
 	
-	@Column
+	@Column(name="Password")
 	private String mPassword;
 	
-	/* Constructor */
-	public User(String aUsername, String aPassword) {
-		this.mUsername = aUsername;
-		this.mPassword = aPassword;
-	}
+	/* Constructors */
 	
 	/* Public accessors and mutators */
 	
 	public String getUsername() { return this.mUsername; }
+	public void setUsername(String aUsername) { this.mUsername = aUsername; }
 	public String getPassword() { return this.mPassword; }
+	public void setPassword(String aPassword) { this.mPassword = aPassword; }
 }
