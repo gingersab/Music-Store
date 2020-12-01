@@ -11,20 +11,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Singers")
+@Table(name="singers")
 public class Singer implements Serializable {
 	
 	/* State */
-	@Id @Column
+	@Id @Column(name="Name")
 	private String mSingerName;
 	
-	@Column
+	@Column(name="Company")
 	private String mSingerCompany;
 	
-	@Id @Column
+	@Id @Column(name="DOB")
 	private LocalDate mDateOfBirth;
 	
-	@Column
+	@Column(name="Sex")
 	private Sex mSex; 
 	
 	/* Constructor*/

@@ -34,7 +34,7 @@ class AssesmentApplicationTests {
 	
 	//Album and Singer datatype tests
     @Test
-    void contextLoads() throws Exception{
+    void basicObjectPersistenceTests() throws Exception{
     	
     	//Singer tests
     	assertThat( testSinger.getSingerName()).isEqualTo("James Blunt");
@@ -57,14 +57,17 @@ class AssesmentApplicationTests {
     
     //Rest API tests
     @Test
-	public void shouldReturnDefaultMessage() throws Exception {
+	public void restAPITests() throws Exception {
 		this.mMockMVC.perform(get("/api/albums"))
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("[")))
 		.andExpect(content().string(containsString("]"))); //crude test for checking /api/albums returns a list
+		
+		this.mMockMVC.perform(get("/api/singers"))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().string(containsString("[")))
+		.andExpect(content().string(containsString("]"))); //crude test for checking /api/singers returns a list
 	}
-   
-    
-
 }

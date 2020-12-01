@@ -2,11 +2,7 @@ package com.nextgate.assesment.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +27,7 @@ public class AlbumService implements AlbumServiceInterface {
 		return mAlbumDAO.getAlbum(aAlbumName);
 	}
 
+	@Transactional
 	@Override
 	public void addAlbum(Album aAlbum) {
 		mAlbumDAO.addAlbum(aAlbum);
