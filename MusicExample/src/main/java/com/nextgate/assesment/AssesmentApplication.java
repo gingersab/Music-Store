@@ -12,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AssesmentApplication {
 
     public static void main(String[] args) {
-    	
-    	final String webhost_pass = "WRFRvBEp_f6A[z2[";
         SpringApplication.run(AssesmentApplication.class, args);
     }
 

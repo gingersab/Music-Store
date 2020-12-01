@@ -1,16 +1,30 @@
 package com.nextgate.assesment.datatypes;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class Singer {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Singers")
+public class Singer implements Serializable {
 	
 	/* State */
-	
+	@Id @Column
 	private String mSingerName;
+	
+	@Column
 	private String mSingerCompany;
+	
+	@Id @Column
 	private LocalDate mDateOfBirth;
+	
+	@Column
 	private Sex mSex; 
 	
 	/* Constructor*/
@@ -24,36 +38,13 @@ public class Singer {
 	
 	/* Public accessors and mutators */
 	
-	public String getSingerName() {
-		return this.mSingerName;
-	}
-	
-	public void setSingerName(String aSingerName) {
-		this.mSingerName = aSingerName;
-	}
-	
-	public String getCompanyName() {
-		return this.mSingerCompany;
-	}
-	
-	public void setCompanyName(String aCompanyName) {
-		this.mSingerCompany = aCompanyName;
-		
-	}
-	
-	public Sex getSingerSex() {
-		return this.mSex;
-	}
-	
-	public void setSingerSex(Sex aSex) {
-		
-			this.mSex = aSex;
-	}
-	
-	
-	public LocalDate getDateOfBirth() {
-		return mDateOfBirth;
-	}
+	public String getSingerName() { return this.mSingerName; }
+	public void setSingerName(String aSingerName) { this.mSingerName = aSingerName; }
+	public String getCompanyName() { return this.mSingerCompany; }
+	public void setCompanyName(String aCompanyName) { this.mSingerCompany = aCompanyName; }
+	public Sex getSingerSex() { return this.mSex; }
+	public void setSingerSex(Sex aSex) { this.mSex = aSex; }
+	public LocalDate getDateOfBirth() { return mDateOfBirth; }
 	
 	public boolean setDateOfBirth(String aDateString) {
 		try {

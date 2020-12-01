@@ -1,8 +1,8 @@
 * Tests *
 - TDD tests are available under com.nextgate.assesment.assesmentapplicationtests
-- Using AssertJ
 
 * Database *
+- 000webhost did not support JDBC connections. Had to find another free host that did.
 
 - VARCHAR used since it is possible for singer, album and company names to contain numbers
 
@@ -11,8 +11,8 @@
 - DOB attribute set to YEAR type to follow YYYY format
 
 - Table structure as follows:
-	- Singers: Name (VARCHAR 50, PK), DOB (DATE YYYY-MM-DD, PK), SEX (VARCHAR 6), COMPANY (VARCHAR 50)
-	- Album: Singer (VARCHAR 50, PK), Album( VARCHAR 50, PK) Year (YEAR YYYY), Company (VARCHAR 50)
+	- Singers: Name (VARCHAR, PK), DOB (DATE, PK), SEX (VARCHAR 6), COMPANY (VARCHAR)
+	- Album: Singer (VARCHAR, PK), Album( VARCHAR, PK) Year (YEAR), Company (VARCHAR)
 	- User: User (VARCHAR 15, PK), Pass (VARCHAR 15)
 
 - Assuming that a composite PK using attributes "Name" and "DOB" for the Singers table is okay. It does allow the subtle possibility for the breach of entity
@@ -26,3 +26,9 @@ integrity since a singer *could* have the same name and date of birth as another
 - Played around with Calendar but it seemed excessive considering I'm only concerned with a "yyyyDDmm" date string
 - Opted to use Strings as method parameter types and contracted the behaviour for parsing these into "yyyyDDmm" LocalDate types to their respective classes
 - LocalDate is great, except it must have month, day and year information supplied. This was unsuitable for the Album class, so opted for Year (java.time.year)
+
+* Hibernate *
+
+- Encountered a strange issue where having an initial capitalised table name was causing table not found errors in Hibernate. 
+It seems it was being parsed as lower case during query execution. Couldn't find a solution in good time so I opted to just rename my tables to lowercase.
+
