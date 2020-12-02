@@ -5,12 +5,20 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.Month;
@@ -58,17 +66,28 @@ class AssesmentApplicationTests {
     //Rest API tests
     @Test
 	public void restAPITests() throws Exception {
+    	
+    	//Test GET all albums
 		this.mMockMVC.perform(get("/api/albums"))
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("[")))
 		.andExpect(content().string(containsString("]"))); //crude test for checking /api/albums returns a list
 		
+		//Test GET all singers
 		this.mMockMVC.perform(get("/api/singers"))
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("[")))
 		.andExpect(content().string(containsString("]"))); //crude test for checking /api/singers returns a list
 		
-	}
+		//Test POST login
+		//Note a 201 response is unexpected here since confirming the login credentials does not results in the creation of a resource
+		this.mMockMVC.perform(post("/api/login")
+       .contentType(MediaType.APPLICATION_JSON)
+       .content("{ \"username\": \"Scott\", \"password\": \"Password\" } ")
+       .accept(MediaType.APPLICATION_JSON))
+	   .andExpect(content().string("true"))
+	   .andExpect(status().isOk());
+}
 }
