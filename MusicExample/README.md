@@ -1,19 +1,41 @@
-# Getting Started
+This project is a code/technical test for NextGate UK (https://nextgate.com/uk/)
 
-## How To Run Me
-### Step1 - Using Maven
-There are two options
+The structure of this application is as follows:
+- RESTful MVC web app 
+- MySQL backend hosted for free by https://www.freemysqlhosting.net/
+- Server side is Java using Spring Boot framework
+- The server side design follows the Database Access Object (DAO) pattern
+- Database interactions follow Spring JPA/Hibernate
+- Front end is implemented using React
+- Project is packaged and built with Maven
 
-* Using the Maven wrapper  <b><i>./mvnw</b></i> or <b><i>mvnw install</b></i> 
-* Using the Maven client: <b><i>mvn</b></i> 
+**Quick Start**
 
-### Step2 - Install
-At the top of the project run an install to download the relevant dependencies and compile the code  
+- Get started without downloading or cloning the project
+- Download the `NGMusicWares.JAR` file from the latest release
+- Run the JAR file: 
+    `java -jar NGMusicWares.JAR`
+    
+- Open a browser and enter `localhost:8080` as the URL 
 
-<b><i>./mvnw install</b></i>
+**Building the project**
 
+- Download the project ZIP file
+- Extract the files to some directory
+- Navigate to project directory and into the `MusicExample` folder
+- Build the project:
+    `mvn clean package`
+    
+**Running the tests**
 
-### Step3 - Run
-At the top of the project start spring boot which will run your jar, and any REST endpoints should be available at http://localhost:8080/{METHOD_NAME}
+- Once the project is built simply execute
+    ` mvn test`
+    
+**Running the application**
 
-<b><i>./mvnw spring-boot:run</b></i>
+- Once the project is built, navigate to `MusicExample/target` folder
+
+- Run the JAR file: 
+    `java -jar NGMusicWares.JAR`
+  
+- To use the application open a browser and enter `localhost:8080` as the URL 
