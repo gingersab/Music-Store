@@ -40,7 +40,7 @@ class AssesmentApplicationTests {
 	@Autowired
 	private MockMvc mMockMVC;
 	
-	//Album and Singer datatype tests
+	//Album and Singer property tests
     @Test
     void basicObjectPersistenceTests() throws Exception{
     	
