@@ -28,6 +28,6 @@ public class AssesmentApplication {
     //Instead bind this method to execute after the beans are initialised
     @PostConstruct
     public void init() {
-    	//mFileLoader.loadFileAndPopulate();
+    	mFileLoader.loadFileAndPopulate();
     }
 }
