@@ -12,7 +12,7 @@
 
 	<groupId>com.nextgate</groupId>
 	<artifactId>assesment</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>NGMusicWares</version>
 	<name>Nextgate :: Assesment</name>
 	<description>The technical test for candidates to complete.</description>
 
@@ -63,6 +63,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>NGMusicWares</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
