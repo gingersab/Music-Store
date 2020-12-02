@@ -19,4 +19,10 @@ public class UserService implements UserServiceInterface {
 	public boolean Login(User aUser) {
 		return mUserDAO.Login(aUser);
 	}
+	
+	@Transactional
+	@Override
+	public void addNewUser(User aUser) {
+		mUserDAO.addNewUser(aUser);
+	}
 }

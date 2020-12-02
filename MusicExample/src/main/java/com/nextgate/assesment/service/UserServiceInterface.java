@@ -4,4 +4,5 @@ import com.nextgate.assesment.datatypes.User;
 
 public interface UserServiceInterface {
  boolean Login(User aUser);
+ void addNewUser(User aUser);
 }

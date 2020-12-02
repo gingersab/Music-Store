@@ -7,6 +7,8 @@ import java.time.format.DateTimeParseException;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -24,7 +26,7 @@ public class Singer implements Serializable {
 	@Id @Column(name="DOB")
 	private LocalDate mDateOfBirth;
 	
-	@Column(name="Sex")
+	@Column(name="Sex")@Enumerated(EnumType.STRING)
 	private Sex mSex; 
 	
 	/* Constructors*/
@@ -45,7 +47,7 @@ public class Singer implements Serializable {
 	public void setSingerName(String aSingerName) { this.mSingerName = aSingerName; }
 	public String getCompanyName() { return this.mSingerCompany; }
 	public void setCompanyName(String aCompanyName) { this.mSingerCompany = aCompanyName; }
-	public Sex getSingerSex() { return this.mSex; }
+	public Sex getSingerSex() { return Sex.valueOf(mSex.name()); }
 	public void setSingerSex(Sex aSex) { this.mSex = aSex; }
 	public LocalDate getDateOfBirth() { return mDateOfBirth; }
 	
@@ -56,7 +58,7 @@ public class Singer implements Serializable {
 			return true;
 		}
 		catch(DateTimeParseException e) {
-			System.out.println("An exception was thrown during parsing of the DoB string");
+			System.out.println("DOB parsing error: " + e.getMessage());
 			return false;
 		}
 	}

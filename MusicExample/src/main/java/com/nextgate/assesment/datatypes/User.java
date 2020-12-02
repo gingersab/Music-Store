@@ -17,6 +17,13 @@ public class User {
 	private String mPassword;
 	
 	/* Constructors */
+	public User() {
+	}
+	
+	public User(String aUsername, String aPassword) {
+		this.mUsername = aUsername;
+		this.mPassword =aPassword;
+	}
 	
 	/* Public accessors and mutators */
 	

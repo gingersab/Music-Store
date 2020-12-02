@@ -23,18 +23,18 @@ public class Album implements Serializable {
 	private String mAlbumCompany;
 	
 	@Id @Column(name="Year")
-	private Year mAlbumYear;
+	private int mAlbumYear;
 	
 	/* Constructors*/
 	
 	public Album() {
 	}
 	
-	public Album(String aAlbumName, String aCompany, String aSingerName, String aYearString) {
+	public Album(String aAlbumName, String aCompany, String aSingerName, int aAlbumYear) {
 		this.mAlbumName = aAlbumName;
 		this.mAlbumCompany = aCompany;
 		this.mSingerName = aSingerName;
-		setAlbumYear(aYearString);
+		this.mAlbumYear = aAlbumYear;
 	}
 	
 	/* Public accessors and mutators */
@@ -45,16 +45,6 @@ public class Album implements Serializable {
 	public void setSingerName(String aName) { this.mSingerName = aName; }
 	public String getCompanyName() { return this.mAlbumCompany; }
 	public void setCompanyName(String aCompanyName) { this.mAlbumCompany = aCompanyName; }
-	public Year getAlbumYear() { return mAlbumYear; }
-	
-	public boolean setAlbumYear(String aYearString) {
-		try {
-			mAlbumYear = Year.parse(aYearString);
-			return true;
-		}
-		catch(DateTimeParseException e) {
-			System.out.println("An exception was thrown during parsing of the album year string: " + e.getMessage());
-			return false;
-		}
-	}
+	public int getAlbumYear() { return mAlbumYear; }
+	public void setAlbumYear(int aAlbumYear) { this.mAlbumYear = aAlbumYear; }
 }
