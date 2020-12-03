@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MainPageLayout from "./Components/MainPageLayout";
+import NavBar from "./Components/NavBar";
 import {
 	  BrowserRouter as Router,
 	  Switch,
@@ -12,7 +12,7 @@ class App extends Component {
 	 render() {
 		    return (
 		      <Router>
-		        <Route exact path="/" component={MainPageLayout} />
+		        <Route exact path="/" component={NavBar} />
 		      </Router>
 		    );
 		  }

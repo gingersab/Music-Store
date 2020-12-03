@@ -24,23 +24,18 @@ class LoginForm extends Component {
 		});
 	}
 
-	handleSubmit(event) {
+	async handleSubmit(event) {
 		event.preventDefault();
 		
-		const response = fetch("/api/login/", {
+		
+		const response = await fetch("/api/login/", {
 			method: "POST", 
-			mode: "cors",
-			cache: "no-cache", 
-			credentials: "same-origin", 
-			headers: {
-				"Content-Type": "application/json"
-			},
-			redirect: "follow", 
-			referrerPolicy: "no-referrer", 
+			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify(this.state)
 		});
+		const json = await response.json();
+		console.log("apsjdfapsd " + json);
 		
-		console.log("RESP: " + response);
 	}
 
 	render() {
