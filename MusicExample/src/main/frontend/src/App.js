@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import getAlbum from "./Components/getAlbum";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import Table from "./Components/Table";
-
+import MainPageLayout from "./Components/MainPageLayout";
+import {
+	  BrowserRouter as Router,
+	  Switch,
+	  Route,
+	  Link
+	} from "react-router-dom";
+import "./App.css"
+		
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Route exact path="/" component={getAlbum}/>
-        <Route exact path="/view" component={Table} />
-      </Router>
-    );
-  }
-}
+	 render() {
+		    return (
+		      <Router>
+		        <Route exact path="/" component={MainPageLayout} />
+		      </Router>
+		    );
+		  }
+		}
 
 export default App;

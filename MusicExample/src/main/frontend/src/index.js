@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import NavBar from './Components/NavBar'
+import LoginForm from './Components/LoginForm'
+import MainLayout from './Components/MainLayout'
+
+import './index.css';
+
+let loggedInCookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)isLoggedIn\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+loggedInCookieValue = loggedInCookieValue.length === 0 ? false : true;
+
+let IsUserLoggedIn=() =>  loggedInCookieValue ? <MainLayout /> : <LoginForm />
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NavBar />
+    <IsUserLoggedIn />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

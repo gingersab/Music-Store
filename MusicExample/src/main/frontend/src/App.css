@@ -1,3 +1,73 @@
+body{
+	background:#FFFFFF;
+	height:100%;
+	width:100%;
+}
+
+.navwrapper{
+	width:90%;
+	margin-left:5%;
+	margin-right:5%
+}
+
+.navbar{
+	margin-left:30%;
+	margin-right:3%;
+}
+
+.navbar a{
+	text-align:center;
+	float:right;
+	margin-top:10%;
+	margin-right: 10%;
+}
+
+.navwrapper img{
+	width:20%;
+	float: left;
+	margin-top:0;
+}
+
+.navLowerLine{
+	width:100%;
+}
+
+.titleWrapper{
+	width:40%;
+	margin-left:30%;
+	margin-right:40%;
+}
+
+.titleWrapper h5{
+	float:center;
+	text-align: center;
+	font-size:32pt;
+	color:#959da1;
+}
+
+.mainBodyWrapper{
+	
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	
+}
+
+.displayItemsWrapper{
+	
+	float:left;
+	margin-left:5%;
+	margin-right:5%;
+	width:30%;
+	border-style:solid;
+	border-width:thin;
+	border-color: #959da1;
+}
+
+.createOrUpdateWrapper{
+	
+}
+
 .App {
   text-align: center;
 }
