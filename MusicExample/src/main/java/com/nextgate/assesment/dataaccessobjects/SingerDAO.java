@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.nextgate.assesment.datatypes.Album;
 import com.nextgate.assesment.datatypes.Singer;
 
 @Repository
@@ -36,6 +37,16 @@ public class SingerDAO implements SingerInterfaceDAO {
 	public void addSinger(Singer aSinger) {
 		Session currentSession = mEntityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(aSinger);
+	}
+
+	@Override
+	public List<Singer> Search(String aSearchTerm) {
+		Session currentSession = mEntityManager.unwrap(Session.class);
+		Query<Singer> query = currentSession.createQuery("FROM Singer a where a.mSingerName LIKE :searchQuery", Singer.class)
+				.setParameter("searchQuery",'%'+aSearchTerm+'%');
+		List<Singer> allSingers = query.getResultList();
+		System.out.println(String.format("Found %1$d albums using search term %2$s", allSingers.size(), aSearchTerm ));
+		return allSingers;
 	}
 
 }

@@ -5,6 +5,7 @@ import com.nextgate.assesment.datatypes.Singer;
 
 public interface SingerServiceInterface {
 	List<Singer> allSingers();
+	List<Singer> Search(String aSearchTerm);
 	Singer getSinger(String aSingerName);
 	void addSinger(Singer aSinger);
 }

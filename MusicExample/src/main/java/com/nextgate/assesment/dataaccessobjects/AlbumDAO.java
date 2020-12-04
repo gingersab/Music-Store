@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nextgate.assesment.datatypes.Album;
+import com.nextgate.assesment.datatypes.User;
 
 @Repository
 public class AlbumDAO implements AlbumInterfaceDAO {
@@ -36,5 +37,15 @@ public class AlbumDAO implements AlbumInterfaceDAO {
 	public void addAlbum(Album aAlbum) {
 		Session currentSession = mEntityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(aAlbum);
+	}
+
+	@Override
+	public List<Album> Search(String aSearchTerm) {
+		Session currentSession = mEntityManager.unwrap(Session.class);
+		Query<Album> query = currentSession.createQuery("FROM Album a where a.mAlbumName LIKE :searchQuery", Album.class)
+				.setParameter("searchQuery",'%'+aSearchTerm+'%');
+		List<Album> allAlbums = query.getResultList();
+		System.out.println(String.format("Found %1$d albums using search term %2$s", allAlbums.size(), aSearchTerm ));
+		return allAlbums;
 	}
 }

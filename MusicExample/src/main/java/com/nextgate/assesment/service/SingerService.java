@@ -34,4 +34,9 @@ public class SingerService implements SingerServiceInterface {
 		mSingerDAO.addSinger(aSinger);
 	}
 
+	@Override
+	public List<Singer> Search(String aSearchTerm) {
+		return mSingerDAO.Search(aSearchTerm);
+	}
+
 }

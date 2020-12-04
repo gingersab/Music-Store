@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nextgate.assesment.datatypes.Album;
 import com.nextgate.assesment.datatypes.Singer;
 import com.nextgate.assesment.datatypes.User;
@@ -30,6 +31,8 @@ public class RestAPIController {
 	@Autowired
 	private UserService mUserService;
 	
+	private ObjectMapper mObjectMapper;
+	
 	@GetMapping("/albums")
 	public List<Album>getAlbums(){
 		List<Album> results = mAlbumService.allAlbums();
@@ -49,5 +52,19 @@ public class RestAPIController {
 	public boolean login(@RequestBody User aUser ) {
 		System.out.println(String.format("Confirming that @RequestBody is mapping: %1$s %2$s", aUser.getUsername(), aUser.getPassword()));
 		return mUserService.Login(aUser);
+	}
+	
+	@PostMapping("/search/singers")
+	@ResponseBody
+	public List<Singer> searchSingers(@RequestBody String aSearchTerm){
+		List<Singer> singerSearchResults=  mSingerService.Search(aSearchTerm);
+		return singerSearchResults;
+	}
+	
+	@PostMapping("/search/albums")
+	@ResponseBody
+	public List<Album> searchAlbums(@RequestBody String aSearchTerm){
+		List<Album> albumSearchResults=  mAlbumService.Search(aSearchTerm);
+		return albumSearchResults;
 	}
 }

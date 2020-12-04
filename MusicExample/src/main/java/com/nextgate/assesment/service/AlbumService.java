@@ -32,4 +32,9 @@ public class AlbumService implements AlbumServiceInterface {
 	public void addAlbum(Album aAlbum) {
 		mAlbumDAO.addAlbum(aAlbum);
 	}
+
+	@Override
+	public List<Album> Search(String aSearchTerm) {
+		return mAlbumDAO.Search(aSearchTerm);
+	}
 }

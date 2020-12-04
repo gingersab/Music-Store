@@ -32,12 +32,6 @@ body{
 	width:100%;
 }
 
-.titleWrapper{
-	width:40%;
-	margin-left:30%;
-	margin-right:40%;
-}
-
 .titleWrapper h5{
 	float:center;
 	text-align: center;
@@ -45,26 +39,29 @@ body{
 	color:#959da1;
 }
 
-.mainBodyWrapper{
-	
-	width:80%;
-	margin-left:10%;
-	margin-right:10%;
-	
-}
-
-.displayItemsWrapper{
-	
-	float:left;
+.mainContainer{
+	width:90%;
 	margin-left:5%;
 	margin-right:5%;
-	width:30%;
-	border-style:solid;
-	border-width:thin;
-	border-color: #959da1;
+	
+	
 }
 
-.createOrUpdateWrapper{
+.searchField{
+	width:60%;
+	margin-left:20%;
+	margin-right:20%;
+	display:block;
+}
+
+.searchField form{
+	text-align:center;
+}
+
+.searchResults{
+	width:60%;
+	margin-left:20%;
+	margin-right:20%;
 	
 }
 
