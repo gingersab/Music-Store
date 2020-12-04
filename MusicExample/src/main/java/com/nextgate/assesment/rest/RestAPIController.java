@@ -57,6 +57,7 @@ public class RestAPIController {
 	@PostMapping("/search/singers")
 	@ResponseBody
 	public List<Singer> searchSingers(@RequestBody String aSearchTerm){
+		aSearchTerm=aSearchTerm.replaceAll("\"", "");
 		List<Singer> singerSearchResults=  mSingerService.Search(aSearchTerm);
 		return singerSearchResults;
 	}
@@ -64,6 +65,7 @@ public class RestAPIController {
 	@PostMapping("/search/albums")
 	@ResponseBody
 	public List<Album> searchAlbums(@RequestBody String aSearchTerm){
+		aSearchTerm=aSearchTerm.replaceAll("\"", "");
 		List<Album> albumSearchResults=  mAlbumService.Search(aSearchTerm);
 		return albumSearchResults;
 	}

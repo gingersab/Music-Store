@@ -45,7 +45,7 @@ public class SingerDAO implements SingerInterfaceDAO {
 		Query<Singer> query = currentSession.createQuery("FROM Singer a where a.mSingerName LIKE :searchQuery", Singer.class)
 				.setParameter("searchQuery",'%'+aSearchTerm+'%');
 		List<Singer> allSingers = query.getResultList();
-		System.out.println(String.format("Found %1$d albums using search term %2$s", allSingers.size(), aSearchTerm ));
+		System.out.println(String.format("Found %1$d singers using search term %2$s", allSingers.size(), aSearchTerm ));
 		return allSingers;
 	}
 
