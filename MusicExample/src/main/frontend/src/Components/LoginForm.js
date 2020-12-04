@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../logo.svg"
+import PerformRequest from "./helpers";
 
 class LoginForm extends Component {
 
@@ -24,19 +24,16 @@ class LoginForm extends Component {
 		});
 	}
 
-	async handleSubmit(event) {
+	 handleSubmit(event) {
 		event.preventDefault();
-		
-		
-		const response = await fetch("/api/login/", {
-			method: "POST", 
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify(this.state)
+		PerformRequest("/api/login", "POST", this.state).then(result => {
+			if(result){
+				document.cookie="isLoggedIn=true; path=/; max-age=10800;";
+			}
+			window.location.reload(true);
 		});
-		const json = await response.json();
-		console.log("apsjdfapsd " + json);
-		
-	}
+	 }
+
 
 	render() {
 		return (
