@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PerformRequest from "./helpers";
+import PerformJSONPOSTRequest from "./helpers";
 
 class LoginForm extends Component {
 
@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
 	 handleSubmit(event) {
 		event.preventDefault();
-		PerformRequest("/api/login", "POST", this.state).then(result => {
+		PerformJSONPOSTRequest("/api/login", this.state).then(result => {
 			if(result){
 				document.cookie="isLoggedIn=true; path=/; max-age=10800;";
 			}

@@ -45,4 +45,6 @@ fell behind the selected targets by the user. Adding a callback to console.log()
 - https://stackoverflow.com/questions/53102478/react-input-onchange-to-update-state-step-behind
 - Not specifically a React problem, but since the search API requires a String and this is sent in text/plain, we have to remove the double quotes
 before performing the query. Opted to do this server side with replaceAll()
-
+- state.queryTarget represents a search for either a singer or an album. 
+- state.resultsQueryTarget represents the target of the last API request. 
+- differentiating between the two prevents a bug where changing state.queryTarget causes changing pages of the results to display missing info

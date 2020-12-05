@@ -8,8 +8,6 @@ class NavBar extends Component {
       <div className="navwrapper">
       <img src={logo} alt="React logo"/>
         <nav className="navbar">
-          <a href="#">All Albums </a>
-          <a href="#">All Singers </a>
           <a href="#">Add New</a>
         </nav>
         <hr className="navLowerLine"/>
