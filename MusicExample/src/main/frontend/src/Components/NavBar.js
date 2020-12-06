@@ -10,6 +10,7 @@ class NavBar extends Component {
       <img src={logo} alt="React logo"/>
         <nav className="navbar">
         	<Link to="/create">Add New</Link>
+        	<Link to="/">Home</Link>
         </nav>
         <hr className="navLowerLine"/>
       </div>

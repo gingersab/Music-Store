@@ -2,189 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import {PerformJSONGETRequest, PerformPlainTextPOSTRequest} from "./helpers"
 
-const testData = [
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 2001,
-    "albumName": "A MAJOR",
-    "singerName": "ALICIA KEYS"
-},
-{
-    "companyName": "COLUMBIA RECORDS",
-    "albumYear": 2002,
-    "albumName": "B MAJOR",
-    "singerName": "ALICIA KEYS"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 2005,
-    "albumName": "C MAJOR",
-    "singerName": "ALICIA KEYS"
-},
-{
-    "companyName": "COLUMBIA RECORDS",
-    "albumYear": 2004,
-    "albumName": "IRREPALCE",
-    "singerName": "BEYONCE KNOWLES"
-},
-{
-    "companyName": "ATLANTIC RECORDS",
-    "albumYear": 2010,
-    "albumName": "REPLACE",
-    "singerName": "BEYONCE KNOWLES"
-},
-{
-    "companyName": "CAPITOL RECORDS",
-    "albumYear": 2010,
-    "albumName": "TO THE LEFT",
-    "singerName": "BEYONCE KNOWLES"
-},
-{
-    "companyName": "WARNER BROS. RECORDS",
-    "albumYear": 1999,
-    "albumName": "FIRST TIME",
-    "singerName": "BRITNEY SPEARS"
-},
-{
-    "companyName": "COLUMBIA RECORDS",
-    "albumYear": 2005,
-    "albumName": "I'M BACK",
-    "singerName": "BRITNEY SPEARS"
-},
-{
-    "companyName": "WARNER BROS. RECORDS",
-    "albumYear": 2003,
-    "albumName": "ONE MORE",
-    "singerName": "BRITNEY SPEARS"
-},
-{
-    "companyName": "EPIC RECORDS",
-    "albumYear": 1997,
-    "albumName": "MY HEART",
-    "singerName": "CELINE DION"
-},
-{
-    "companyName": "WARNER BROS. RECORDS",
-    "albumYear": 1998,
-    "albumName": "PRAYER",
-    "singerName": "CELINE DION"
-},
-{
-    "companyName": "UNIVERSAL RECORDS",
-    "albumYear": 1998,
-    "albumName": "WILL GO ON",
-    "singerName": "CELINE DION"
-},
-{
-    "companyName": "ATLANTIC RECORDS",
-    "albumYear": 2002,
-    "albumName": "HIGH SCHOOL",
-    "singerName": "FERGIE"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 2011,
-    "albumName": "WILDCATS",
-    "singerName": "FERGIE"
-},
-{
-    "companyName": "INTERSCOPE RECORDS",
-    "albumYear": 2000,
-    "albumName": "WILSON",
-    "singerName": "FERGIE"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1956,
-    "albumName": "BROWNIE",
-    "singerName": "JAMES BROWN"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1970,
-    "albumName": "JAMES BROWN",
-    "singerName": "JAMES BROWN"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1960,
-    "albumName": "JIMMY",
-    "singerName": "JAMES BROWN"
-},
-{
-    "companyName": "COLUMBIA RECORDS",
-    "albumYear": 2005,
-    "albumName": "AMERICA",
-    "singerName": "KATY PERRY"
-},
-{
-    "companyName": "CAPITOL RECORDS",
-    "albumYear": 2007,
-    "albumName": "GOD BLESS",
-    "singerName": "KATY PERRY"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 2009,
-    "albumName": "U.S.A.",
-    "singerName": "KATY PERRY"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1980,
-    "albumName": "BAD",
-    "singerName": "MICHAEL JACKSON"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1982,
-    "albumName": "BEAT IT",
-    "singerName": "MICHAEL JACKSON"
-},
-{
-    "companyName": "INTERSCOPE RECORDS",
-    "albumYear": 1998,
-    "albumName": "BLACK OR WHITE",
-    "singerName": "MICHAEL JACKSON"
-},
-{
-    "companyName": "CAPITOL RECORDS",
-    "albumYear": 1985,
-    "albumName": "DO IT LIKE",
-    "singerName": "MICK JAGGER"
-},
-{
-    "companyName": "UNIVERSAL RECORDS",
-    "albumYear": 1990,
-    "albumName": "MICK JAGGER",
-    "singerName": "MICK JAGGER"
-},
-{
-    "companyName": "EPIC RECORDS",
-    "albumYear": 1989,
-    "albumName": "MICKIE",
-    "singerName": "MICK JAGGER"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1978,
-    "albumName": "I WONDER",
-    "singerName": "STEVIE WONDER"
-},
-{
-    "companyName": "MOTOWN RECORD CORP",
-    "albumYear": 1979,
-    "albumName": "STEPHEN",
-    "singerName": "STEVIE WONDER"
-},
-{
-    "companyName": "EPIC RECORDS",
-    "albumYear": 1984,
-    "albumName": "WONDERFUL",
-    "singerName": "STEVIE WONDER"
-}
-];
-
 class MainLayout extends Component {
 	
 	constructor(props) {
@@ -253,14 +70,14 @@ class MainLayout extends Component {
 				let album = data[i].albumName;
 				let singer = data[i].singerName;
 				let year = data[i].albumYear;
-				ReactDOM.render(<p>{album}, {singer}, {company}, {year}</p>, document.getElementById(elementID));
+				ReactDOM.render(<div>{album}, {singer}, {company}, {year}<hr /></div>, document.getElementById(elementID));
 			}
 			else if(target=="singers"){
 				let company = data[i].companyName;
 				let dob = data[i].dateOfBirth;
 				let singer = data[i].singerName;
 				let sex = data[i].singerSex;
-				ReactDOM.render(<p>{singer}, {company}, {sex}, {dob}</p>, document.getElementById(elementID));
+				ReactDOM.render(<div>{singer}, {company}, {sex}, {dob}<hr /></div>, document.getElementById(elementID));
 			}
 			else{
 				ReactDOM.render(<h3>something went wrong </h3>, elementAppendTo);
@@ -304,17 +121,18 @@ class MainLayout extends Component {
       </div>
       <div className="searchField">
       <form name="searchForm"  onSubmit={this.handleSubmit}>
-      <label> Search for Singers/Albums
       <select value={this.state.queryTarget} name="queryTarget" onChange={this.handleInputChange}>
       	<option value="albums">Albums</option>
       	<option value="singers">Singers</option>
       	</select>
-      </label>
       <input type="text" name="searchQuery" onChange={this.handleInputChange} placeholder="Search term"/>
       <input type="submit" value="Search" />
+      </form>
+      <hr />
+      <div className="getAllButtons">
       <button name ="albums" value="Display All Albums" onClick={this.handleClick}> Get All Albums</button>
       <button name="singers" value="Display All Singers" onClick={this.handleClick}> Get All Singers </button>
-      </form>
+      </div>
       </div>
       </div>
       </React.Fragment>

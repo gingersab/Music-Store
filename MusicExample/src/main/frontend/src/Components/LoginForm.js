@@ -40,7 +40,6 @@ class LoginForm extends Component {
 				<React.Fragment>
 				<div className="loginForm">
 				<form name="login" onSubmit={this.handleSubmit}>
-				<h3>Login</h3>
 				<input type="text" name="username" placeholder="Username" onChange={this.handleInputChange}/>
 				<input type="password" name="password" placeholder="**********" onChange={this.handleInputChange}/>
 				<input type="submit" value="Login"/>  

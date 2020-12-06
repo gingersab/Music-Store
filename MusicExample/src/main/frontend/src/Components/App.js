@@ -12,9 +12,8 @@ import '../App.css';
 
 let loggedInCookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)isLoggedIn\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 loggedInCookieValue = loggedInCookieValue.length === 0 ? false : true;
+let IsUserLoggedIn=() =>  loggedInCookieValue ? <MainLayout /> : <LoginForm />
 
-//let IsUserLoggedIn=() =>  loggedInCookieValue ? <MainLayout /> : <LoginForm />
-let IsUserLoggedIn=() =>  <MainLayout />
 class App extends Component {
 
 	render() {
@@ -30,3 +29,4 @@ class App extends Component {
 }
 
 export default App;
+export {loggedInCookieValue};
