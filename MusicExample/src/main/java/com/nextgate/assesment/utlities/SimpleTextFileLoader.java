@@ -21,69 +21,71 @@ import com.nextgate.assesment.service.UserService;
 public class SimpleTextFileLoader {
 
 	private String mDataFile = "data/ng_music_data.txt";
-	
+
 	@Autowired
 	private UserService mUserService;
-	
+
 	@Autowired
 	private AlbumService mAlbumService;
-	
+
 	@Autowired
 	private SingerService mSingerService;
-	
-	
+
+
 	public void loadFileAndPopulate() {
 		try {
-		    BufferedReader fileLineReader = new BufferedReader ( new FileReader (mDataFile));
-		    String lineText= null;
-		   
-		    while((lineText = fileLineReader.readLine())!= null) {
-		    	String[] lineData = lineText.split("\\|");
-		    	
-		    	int i =0;
-		    	for(String s : lineData) {
-		    		lineData[i] = s.trim();
-		    		i++;
-		    	}
-		    	
-		    	switch(lineData[0]) {
-		    	case "S":
-		    		if(lineData[1] == null || lineData[2] == null ||  lineData[3]==null || lineData[4] == null) {
-		    			System.out.println("User data was incomplete");
-		    			break;
-		    		}
-		    		else {
-		    			
-		    		mSingerService.addSinger( new Singer(lineData[1], lineData[4], Sex.valueOf(lineData[3]), lineData[2]));
-		    		}
-		    	case "U":
-		    		if(lineData[1] == null || lineData[2] == null) {
-		    			System.out.println("User data was incomplete");
-		    			break;
-		    		}
-		    		else {
-		    			User newUser = new User(lineData[1], lineData[2]);
-		    			mUserService.addNewUser(newUser);
-		    		}
-		    		break;
-		    		
-		    	case "A":
-		    		if(lineData[1] == null || lineData[2] == null ||  lineData[3]==null || lineData[4] == null) {
-		    			System.out.println("Album data was incomplete");
-		    			break;
-		    		}
-		    		else {
-		    			Album newAlbum = new Album(lineData[2], lineData[4], lineData[1], Integer.parseInt(lineData[3]));
-		    			mAlbumService.addAlbum(newAlbum);
-		    		}
-		    		break;
-		    		
-	    		default:
-	    			System.out.println("Unexpected identifier in file");
-	    			break;
-		    	}
-		    }
-		    fileLineReader.close(); 
+			BufferedReader fileLineReader = new BufferedReader ( new FileReader (mDataFile));
+			String lineText= null;
+
+			while((lineText = fileLineReader.readLine())!= null) {
+				String[] lineData = lineText.split("\\|");
+
+				int i =0;
+				for(String s : lineData) {
+					lineData[i] = s.trim();
+					i++;
+				}
+				switch(lineData[0]) {
+
+				case "S":
+					if(lineData[1] == null || lineData[2] == null ||  lineData[3]==null || lineData[4] == null) {
+						System.out.println("Singer data was incomplete");
+						break;
+					}
+					else {
+
+						mSingerService.addSinger( new Singer(lineData[1], lineData[4], Sex.valueOf(lineData[3]), lineData[2]));
+					}
+					break;
+
+				case "U":
+					if(lineData[1] == null || lineData[2] == null) {
+						System.out.println("User data was incomplete");
+						break;
+					}
+					else {
+						User newUser = new User(lineData[1], lineData[2]);
+						mUserService.addNewUser(newUser);
+					}
+					break;
+
+				case "A":
+					if(lineData[1] == null || lineData[2] == null ||  lineData[3]==null || lineData[4] == null) {
+						System.out.println("Album data was incomplete");
+						break;
+					}
+					else {
+						Album newAlbum = new Album(lineData[2], lineData[4], lineData[1], lineData[3]);
+						mAlbumService.addAlbum(newAlbum);
+					}
+					break;
+
+				default:
+					System.out.println("Unexpected identifier in file");
+					break;
+				}
+			}
+			fileLineReader.close(); 
 		}
 		catch(FileNotFoundException e) {
 			System.out.println(String.format("File %s was not found", mDataFile));

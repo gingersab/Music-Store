@@ -293,8 +293,6 @@ class MainLayout extends Component {
 			this.paginateResults(result, 1, this.state.resultsQueryTarget);
 		});
 	 }
-	
-	
 	 
   render() {
     return (
@@ -321,9 +319,7 @@ class MainLayout extends Component {
       </div>
       </React.Fragment>
     );
-  }
-  
-     
+  } 
 }
  
 export default MainLayout;

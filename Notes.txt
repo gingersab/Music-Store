@@ -21,6 +21,7 @@ integrity since a singer *could* have the same name and date of birth as another
 - Instead set this to run on application load, after Spring Boot has setup all beans/dependencies
 - The composite PKs maintain entity integrity and ensure no duplicates are inserted even when the loader is executer on startup and data is already in tables
 - Enums are stored by JPA using ordinal() by default, so I had to include the @Enumerated annotation to the "Sex" property of Singer.java
+- Missing break statement was causing singers to be stored also as users
 
 * DateTime types *
 

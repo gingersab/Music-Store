@@ -21,7 +21,7 @@ public class AlbumDAO implements AlbumInterfaceDAO {
 	@Override
 	public List<Album> allAlbums() {
 		Session currentSession = mEntityManager.unwrap(Session.class);
-		Query<Album> query = currentSession.createQuery("FROM Album", Album.class);
+		Query<Album> query = currentSession.createQuery("FROM Album a ORDER BY a.mAlbumYear", Album.class);
 		List<Album> allAlbums = query.getResultList();
 		return allAlbums;
 	}
@@ -37,12 +37,13 @@ public class AlbumDAO implements AlbumInterfaceDAO {
 	public void addAlbum(Album aAlbum) {
 		Session currentSession = mEntityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(aAlbum);
+		System.out.println("Added new Album with title " + aAlbum.getAlbumName());
 	}
 
 	@Override
 	public List<Album> Search(String aSearchTerm) {
 		Session currentSession = mEntityManager.unwrap(Session.class);
-		Query<Album> query = currentSession.createQuery("FROM Album a where a.mAlbumName LIKE :searchQuery", Album.class)
+		Query<Album> query = currentSession.createQuery("FROM Album a where a.mAlbumName LIKE :searchQuery ORDER BY a.mAlbumYear", Album.class)
 				.setParameter("searchQuery",'%'+aSearchTerm+'%');
 		List<Album> allAlbums = query.getResultList();
 		System.out.println(String.format("Found %1$d albums using search term %2$s", allAlbums.size(), aSearchTerm ));

@@ -43,6 +43,7 @@ public class UserDAO implements UserInterfaceDAO {
 	public void addNewUser(User aUser) {
 		Session currentSession = mEntityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(aUser);
+		System.out.println("Added new User with username " + aUser.getUsername());
 	}
 
 }

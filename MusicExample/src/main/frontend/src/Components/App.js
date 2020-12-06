@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import NavBar from './NavBar'
 import LoginForm from './LoginForm'
 import MainLayout from './MainLayout'
+import CreateNew from './CreateNew'
 
 import '../index.css';
 import '../App.css';
@@ -12,8 +13,8 @@ import '../App.css';
 let loggedInCookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)isLoggedIn\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 loggedInCookieValue = loggedInCookieValue.length === 0 ? false : true;
 
-let IsUserLoggedIn=() =>  loggedInCookieValue ? <MainLayout /> : <LoginForm />
-//let IsUserLoggedIn=() =>  <MainLayout />
+//let IsUserLoggedIn=() =>  loggedInCookieValue ? <MainLayout /> : <LoginForm />
+let IsUserLoggedIn=() =>  <MainLayout />
 class App extends Component {
 
 	render() {
@@ -22,6 +23,7 @@ class App extends Component {
 				<BrowserRouter>
 				<Route path="/" component={NavBar}/>
 				<Route exact path="/" component={IsUserLoggedIn}/>
+				<Route exact path="/create" component={CreateNew}/>
 				</BrowserRouter>
 		);
 	}

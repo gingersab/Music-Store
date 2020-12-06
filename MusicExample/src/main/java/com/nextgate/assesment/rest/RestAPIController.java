@@ -1,7 +1,8 @@
 package com.nextgate.assesment.rest;
 
 import java.util.List;
-
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nextgate.assesment.datatypes.Album;
+import com.nextgate.assesment.datatypes.Sex;
 import com.nextgate.assesment.datatypes.Singer;
 import com.nextgate.assesment.datatypes.User;
 import com.nextgate.assesment.service.AlbumService;
@@ -69,4 +71,38 @@ public class RestAPIController {
 		List<Album> albumSearchResults=  mAlbumService.Search(aSearchTerm);
 		return albumSearchResults;
 	}
+	
+	@PostMapping("/add/singer")
+	@ResponseBody
+	public void addSinger(@RequestBody String payload) {
+		try {
+			JSONObject json  = new JSONObject(payload);
+			String singerName=json.getString("singerName");
+			String singerCompany = json.getString("singerCompany");
+			String singerDOB=json.getString("singerDOB");
+			mSingerService.addSinger(new Singer(singerName, singerCompany, Sex.valueOf(json.getString("singerSex")), singerDOB));
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@PostMapping("/add/album")
+	@ResponseBody
+	public void addAlbum(@RequestBody String payload) {
+		
+		
+		try {
+			JSONObject json  = new JSONObject(payload);
+			String albumName=json.getString("albumName");
+			String albumCompany = json.getString("albumCompany");
+			String albumSinger=json.getString("albumSinger");
+			String albumYear=json.getString("albumYear");
+			mAlbumService.addAlbum(new Album(albumName, albumCompany, albumSinger, albumYear));
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

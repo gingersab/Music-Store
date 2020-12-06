@@ -35,7 +35,7 @@ class AssesmentApplicationTests {
 	//Note: Not actually a James Blunt fan.
 	
 	private Singer testSinger = new Singer("James Blunt", "James Blunt Inc", Sex.MALE, "19740227");
-	private Album testAlbum = new Album("Back to Bedlam", "Atlantic", "James Blunt", 2004);
+	private Album testAlbum = new Album("Back to Bedlam", "Atlantic", "James Blunt", "2004");
 	
 	@Autowired
 	private MockMvc mMockMVC;

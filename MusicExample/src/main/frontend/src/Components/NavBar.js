@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import logo from "../logo.svg"
  
 class NavBar extends Component {
@@ -8,7 +9,7 @@ class NavBar extends Component {
       <div className="navwrapper">
       <img src={logo} alt="React logo"/>
         <nav className="navbar">
-          <a href="#">Add New</a>
+        	<Link to="/create">Add New</Link>
         </nav>
         <hr className="navLowerLine"/>
       </div>

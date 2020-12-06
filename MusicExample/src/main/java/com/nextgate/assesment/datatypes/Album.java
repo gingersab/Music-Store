@@ -28,13 +28,14 @@ public class Album implements Serializable {
 	/* Constructors*/
 	
 	public Album() {
+		
 	}
 	
-	public Album(String aAlbumName, String aCompany, String aSingerName, int aAlbumYear) {
+	public Album(String aAlbumName, String aCompany, String aSingerName, String aAlbumYear) {
 		this.mAlbumName = aAlbumName;
 		this.mAlbumCompany = aCompany;
 		this.mSingerName = aSingerName;
-		this.mAlbumYear = aAlbumYear;
+		this.mAlbumYear = Integer.parseInt(aAlbumYear);
 	}
 	
 	/* Public accessors and mutators */
