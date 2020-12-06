@@ -39,3 +39,8 @@ The structure of this application is as follows:
     `java -jar NGMusicWares.JAR`
   
 - To use the application open a browser and enter `localhost:8080` as the URL 
+
+**Logging In**
+
+Any of the username/password combinations from the given sample data will work.
+Alternatively use `Username: Scott Password: Password` 
