@@ -24,7 +24,7 @@ The structure of this application is as follows:
 - Extract the files to some directory
 - Navigate to project directory and into the `MusicExample` folder
 - Build the project:
-    `mvn clean package`
+    `mvn package`
     
 **Running the tests**
 
