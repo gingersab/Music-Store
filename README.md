@@ -37,5 +37,7 @@ The structure of this application is as follows:
 
 - Run the JAR file: 
     `java -jar NGMusicWares.JAR`
+    
+- Alternatively execute `mvn spring-boot:run` from the `MusicExample` folder
   
 - To use the application open a browser and enter `localhost:8080` as the URL 
