@@ -1,8 +1,6 @@
-This project is a code/technical test for NextGate UK (https://nextgate.com/uk/)
-
 The structure of this application is as follows:
 - RESTful MVC web app 
-- MySQL backend hosted for free by https://www.freemysqlhosting.net/
+- MySQL backend (**CURRENTLY NO BACKEND ONLINE**)
 - Server side is Java using Spring Boot framework
 - The server side design follows the Database Access Object (DAO) pattern
 - Database interactions follow Spring JPA/Hibernate
