@@ -1,20 +1,13 @@
+(**CURRENTLY NO BACKEND ONLINE - MODIFY TO USE YOUR OWN**)
+
 The structure of this application is as follows:
 - RESTful MVC web app 
-- MySQL backend (**CURRENTLY NO BACKEND ONLINE**)
+- MySQL backend
 - Server side is Java using Spring Boot framework
 - The server side design follows the Database Access Object (DAO) pattern
 - Database interactions follow Spring JPA/Hibernate
 - Front end is implemented using React
 - Project is built with Maven
-
-**Quick Start**
-
-- Get started without downloading or cloning the project
-- Download the `NGMusicWares.JAR` file from the latest release
-- Run the JAR file: 
-    `java -jar NGMusicWares.JAR`
-    
-- Open a browser and enter `localhost:8080` as the URL 
 
 **Building the project**
 
@@ -22,7 +15,7 @@ The structure of this application is as follows:
 - Extract the files to some directory
 - Navigate to project directory and into the `MusicExample` folder
 - Build the project:
-    `mvn clean package`
+    `mvn clean install`
     
 **Running the tests**
 
@@ -33,9 +26,10 @@ The structure of this application is as follows:
 
 - Once the project is built, navigate to `MusicExample/target` folder
 
-- Run the JAR file: 
-    `java -jar NGMusicWares.JAR`
+- Maven: 
+    `mvn spring-boot:run`
     
-- Alternatively execute `mvn spring-boot:run` from the `MusicExample` folder
+- JAR execution:
+    `java -jar NGMusicWares.JAR`
   
-- To use the application open a browser and enter `localhost:8080` as the URL 
+- Runs on `localhost:8080`
